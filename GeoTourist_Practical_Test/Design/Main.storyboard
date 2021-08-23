@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="n0T-6V-xNz">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Medium.ttf">
+            <string>Montserrat-Medium</string>
+        </array>
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="akG-xw-Y8r">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="n0T-6V-xNz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZNW-0b-g26">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qtO-uh-QcD" kind="relationship" relationship="rootViewController" id="hUO-c2-KVi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q3w-aM-49M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1094" y="70"/>
+        </scene>
+        <!--TabbarVC-->
+        <scene sceneID="z5a-eb-Ggw">
+            <objects>
+                <tabBarController storyboardIdentifier="TabbarVC" id="qtO-uh-QcD" customClass="TabbarVC" customModule="GeoTourist_Practical_Test" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Vyq-yK-BY4"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iwb-Lw-ors">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Azc-uw-exF" kind="relationship" relationship="viewControllers" id="6Zx-pb-hx4"/>
+                        <segue destination="1DG-gS-UH5" kind="relationship" relationship="viewControllers" id="xmu-74-p8J"/>
+                        <segue destination="1BH-wJ-hHZ" kind="relationship" relationship="viewControllers" id="EtM-O2-FuD"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nKU-Kd-Way" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1966" y="70"/>
+        </scene>
+        <!--Create Tour-->
+        <scene sceneID="Ycu-BD-CKe">
+            <objects>
+                <viewController storyboardIdentifier="CreateTourVC" id="Azc-uw-exF" customClass="CreateTourVC" customModule="GeoTourist_Practical_Test" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b6F-Ri-4CJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WrT-2j-aVx">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Azc-uw-exF" id="beU-rl-VZ0"/>
+                                </connections>
+                            </mapView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="shb-ds-JLy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AW9-X6-3WX">
+                                        <rect key="frame" x="0.0" y="467" width="375" height="200"/>
+                                        <subviews>
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tour name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S6Y-Nc-G3c">
+                                                <rect key="frame" x="15" y="20" width="300" height="45"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="Mz7-aq-8nU"/>
+                                                </constraints>
+                                                <color key="textColor" name="AppBlack"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingLeftView">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingRightView">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="AppGray"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="Azc-uw-exF" id="SMe-iS-oah"/>
+                                                </connections>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9V-du-PIr">
+                                                <rect key="frame" x="330" y="27.5" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="aM3-gl-Vc4"/>
+                                                    <constraint firstAttribute="height" constant="30" id="qqP-HX-tlq"/>
+                                                </constraints>
+                                                <state key="normal" image="ic_capture_video"/>
+                                                <connections>
+                                                    <action selector="btnCaptureVideoAction:" destination="Azc-uw-exF" eventType="touchUpInside" id="2ET-da-5Hx"/>
+                                                </connections>
+                                            </button>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oiN-0T-KTP">
+                                                <rect key="frame" x="15" y="80" width="300" height="16"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
+                                                <color key="textColor" name="AppGray"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Za6-Jz-13B">
+                                                <rect key="frame" x="330" y="73" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Iid-sX-BLo"/>
+                                                    <constraint firstAttribute="width" constant="30" id="NeZ-SE-BSU"/>
+                                                </constraints>
+                                                <state key="normal" image="ic_txt_cross"/>
+                                                <connections>
+                                                    <action selector="btnRemoveVideoAction:" destination="Azc-uw-exF" eventType="touchUpInside" id="rvY-Gh-nam"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="jzA-Or-V7k">
+                                                <rect key="frame" x="0.0" y="150" width="375" height="50"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gD-Lf-X3N">
+                                                        <rect key="frame" x="0.0" y="0.0" width="187" height="50"/>
+                                                        <color key="backgroundColor" name="AppRed"/>
+                                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
+                                                        <state key="normal" title="Save">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnSaveTourAction:" destination="Azc-uw-exF" eventType="touchUpInside" id="AdH-RW-eq9"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="koc-tY-WUu">
+                                                        <rect key="frame" x="188" y="0.0" width="187" height="50"/>
+                                                        <color key="backgroundColor" name="AppRed"/>
+                                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
+                                                        <state key="normal" title="Cancel">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnCancelTourAction:" destination="Azc-uw-exF" eventType="touchUpInside" id="acj-fF-ELZ"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="mbG-Hw-tnS"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Za6-Jz-13B" firstAttribute="centerY" secondItem="oiN-0T-KTP" secondAttribute="centerY" id="Aws-r1-8db"/>
+                                            <constraint firstItem="oiN-0T-KTP" firstAttribute="top" secondItem="S6Y-Nc-G3c" secondAttribute="bottom" constant="15" id="Bww-Of-E0p"/>
+                                            <constraint firstAttribute="trailing" secondItem="o9V-du-PIr" secondAttribute="trailing" constant="15" id="CUo-qa-BEK"/>
+                                            <constraint firstItem="oiN-0T-KTP" firstAttribute="leading" secondItem="AW9-X6-3WX" secondAttribute="leading" constant="15" id="CiP-w8-05N"/>
+                                            <constraint firstAttribute="height" constant="200" id="EGF-gt-8Na"/>
+                                            <constraint firstItem="o9V-du-PIr" firstAttribute="centerY" secondItem="S6Y-Nc-G3c" secondAttribute="centerY" id="Is8-DE-nmo"/>
+                                            <constraint firstItem="Za6-Jz-13B" firstAttribute="leading" secondItem="oiN-0T-KTP" secondAttribute="trailing" constant="15" id="JGz-xK-Fo0"/>
+                                            <constraint firstItem="jzA-Or-V7k" firstAttribute="leading" secondItem="AW9-X6-3WX" secondAttribute="leading" id="WSB-w5-zL4"/>
+                                            <constraint firstAttribute="trailing" secondItem="jzA-Or-V7k" secondAttribute="trailing" id="XXg-cj-6Mw"/>
+                                            <constraint firstAttribute="trailing" secondItem="Za6-Jz-13B" secondAttribute="trailing" constant="15" id="Yf8-dK-vWn"/>
+                                            <constraint firstItem="o9V-du-PIr" firstAttribute="leading" secondItem="S6Y-Nc-G3c" secondAttribute="trailing" constant="15" id="fvr-hK-y4K"/>
+                                            <constraint firstItem="S6Y-Nc-G3c" firstAttribute="top" secondItem="AW9-X6-3WX" secondAttribute="top" constant="20" id="hPO-O3-V2f"/>
+                                            <constraint firstItem="Za6-Jz-13B" firstAttribute="top" secondItem="S6Y-Nc-G3c" secondAttribute="bottom" constant="8" symbolic="YES" id="o99-aR-neQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="jzA-Or-V7k" secondAttribute="bottom" id="sWQ-Y9-avm"/>
+                                            <constraint firstItem="S6Y-Nc-G3c" firstAttribute="leading" secondItem="AW9-X6-3WX" secondAttribute="leading" constant="15" id="tdc-ZU-GDL"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" name="AppBlack"/>
+                                <constraints>
+                                    <constraint firstItem="AW9-X6-3WX" firstAttribute="leading" secondItem="shb-ds-JLy" secondAttribute="leading" id="R9x-6i-sSd"/>
+                                    <constraint firstAttribute="trailing" secondItem="AW9-X6-3WX" secondAttribute="trailing" id="lBZ-Qb-Tut"/>
+                                    <constraint firstAttribute="bottom" secondItem="AW9-X6-3WX" secondAttribute="bottom" id="nMR-QC-Dz3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="faD-YE-wBz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="shb-ds-JLy" secondAttribute="bottom" id="2iX-UA-Jm3"/>
+                            <constraint firstItem="WrT-2j-aVx" firstAttribute="top" secondItem="b6F-Ri-4CJ" secondAttribute="top" id="ERm-MU-nnz"/>
+                            <constraint firstAttribute="bottom" secondItem="WrT-2j-aVx" secondAttribute="bottom" id="OKC-12-yKr"/>
+                            <constraint firstItem="WrT-2j-aVx" firstAttribute="leading" secondItem="b6F-Ri-4CJ" secondAttribute="leading" id="Yjl-Da-ub5"/>
+                            <constraint firstItem="shb-ds-JLy" firstAttribute="leading" secondItem="b6F-Ri-4CJ" secondAttribute="leading" id="aUQ-kC-JCl"/>
+                            <constraint firstItem="shb-ds-JLy" firstAttribute="top" secondItem="b6F-Ri-4CJ" secondAttribute="top" id="kkg-hO-JFz"/>
+                            <constraint firstAttribute="trailing" secondItem="shb-ds-JLy" secondAttribute="trailing" id="yOq-Ga-Kdm"/>
+                            <constraint firstAttribute="trailing" secondItem="WrT-2j-aVx" secondAttribute="trailing" id="yw7-Yl-RRD"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Create Tour" image="ic_create_tour" id="HGR-9m-uEY"/>
+                    <connections>
+                        <outlet property="btnCaptureVideo" destination="o9V-du-PIr" id="GYl-TB-xW3"/>
+                        <outlet property="btnRemoveVideo" destination="Za6-Jz-13B" id="ja4-g1-dlh"/>
+                        <outlet property="lblVideoName" destination="oiN-0T-KTP" id="TCG-gn-Ydx"/>
+                        <outlet property="txtTourname" destination="S6Y-Nc-G3c" id="YBx-H5-GGK"/>
+                        <outlet property="vMap" destination="WrT-2j-aVx" id="ClW-cG-Qyc"/>
+                        <outlet property="vPopUp" destination="shb-ds-JLy" id="Jy9-Fn-sbn"/>
+                        <outlet property="vSubPopUp" destination="AW9-X6-3WX" id="JaB-te-739"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t8Y-CJ-3xL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1094" y="808"/>
+        </scene>
+        <!--Location Update-->
+        <scene sceneID="DMT-8y-cau">
+            <objects>
+                <viewController storyboardIdentifier="LocationUpdateVC" id="1DG-gS-UH5" customClass="LocationUpdateVC" customModule="GeoTourist_Practical_Test" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mzd-7B-qU5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hb9-e6-r5V">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" name="AppBlack"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellLocationUpdate" rowHeight="60" id="tkf-KB-tXr" customClass="LocationUpdateTVC" customModule="GeoTourist_Practical_Test" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tkf-KB-tXr" id="fMm-BE-7wN">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeO-3L-YqU">
+                                                    <rect key="frame" x="15" y="20" width="345" height="0.0"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
+                                                    <color key="textColor" name="AppBlack1000"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGk-RJ-RMP">
+                                                    <rect key="frame" x="15" y="30" width="345" height="0.0"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
+                                                    <color key="textColor" name="AppBlack1000"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="von-J3-kEh">
+                                                    <rect key="frame" x="15" y="40" width="345" height="0.0"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
+                                                    <color key="textColor" name="AppGray"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="von-J3-kEh" firstAttribute="leading" secondItem="fMm-BE-7wN" secondAttribute="leading" constant="15" id="4cQ-gY-4Os"/>
+                                                <constraint firstAttribute="bottom" secondItem="von-J3-kEh" secondAttribute="bottom" constant="20" id="7Ri-cg-LLZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="nGk-RJ-RMP" secondAttribute="trailing" constant="15" id="TYZ-WG-ePm"/>
+                                                <constraint firstAttribute="trailing" secondItem="von-J3-kEh" secondAttribute="trailing" constant="15" id="b6A-uT-8a6"/>
+                                                <constraint firstItem="yeO-3L-YqU" firstAttribute="leading" secondItem="fMm-BE-7wN" secondAttribute="leading" constant="15" id="bX9-KW-PCV"/>
+                                                <constraint firstAttribute="trailing" secondItem="yeO-3L-YqU" secondAttribute="trailing" constant="15" id="iP0-Nu-8GP"/>
+                                                <constraint firstItem="nGk-RJ-RMP" firstAttribute="top" secondItem="yeO-3L-YqU" secondAttribute="bottom" constant="10" id="lE5-9c-4Gm"/>
+                                                <constraint firstItem="yeO-3L-YqU" firstAttribute="top" secondItem="fMm-BE-7wN" secondAttribute="top" constant="20" id="ovh-Tn-7hs"/>
+                                                <constraint firstItem="von-J3-kEh" firstAttribute="top" secondItem="nGk-RJ-RMP" secondAttribute="bottom" constant="10" id="wZV-Ay-39a"/>
+                                                <constraint firstItem="nGk-RJ-RMP" firstAttribute="leading" secondItem="fMm-BE-7wN" secondAttribute="leading" constant="15" id="zaX-bQ-MxL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="lblDateTime" destination="von-J3-kEh" id="Z6O-6y-sni"/>
+                                            <outlet property="lblLat" destination="yeO-3L-YqU" id="0qw-oL-Zha"/>
+                                            <outlet property="lblLong" destination="nGk-RJ-RMP" id="EKh-ii-ASL"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="1DG-gS-UH5" id="tYJ-xU-K9O"/>
+                                    <outlet property="delegate" destination="1DG-gS-UH5" id="1xg-Yh-n0o"/>
+                                </connections>
+                            </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No data available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d54-vP-5QL">
+                                <rect key="frame" x="125.5" y="324" width="124" height="19"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
+                                <color key="textColor" name="AppGray"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="i9w-f4-a6o"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="d54-vP-5QL" firstAttribute="centerX" secondItem="mzd-7B-qU5" secondAttribute="centerX" id="7C8-vd-i8g"/>
+                            <constraint firstItem="hb9-e6-r5V" firstAttribute="top" secondItem="mzd-7B-qU5" secondAttribute="top" id="Nrc-EQ-h2q"/>
+                            <constraint firstItem="d54-vP-5QL" firstAttribute="centerY" secondItem="mzd-7B-qU5" secondAttribute="centerY" id="blH-Ht-XBA"/>
+                            <constraint firstAttribute="bottom" secondItem="hb9-e6-r5V" secondAttribute="bottom" id="d3c-i3-Xwd"/>
+                            <constraint firstItem="hb9-e6-r5V" firstAttribute="leading" secondItem="mzd-7B-qU5" secondAttribute="leading" id="oTQ-CC-Hty"/>
+                            <constraint firstAttribute="trailing" secondItem="hb9-e6-r5V" secondAttribute="trailing" id="rPR-H1-s3c"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Location Update" image="ic_location_update" id="rjC-52-ffs"/>
+                    <connections>
+                        <outlet property="lblNoData" destination="d54-vP-5QL" id="cCc-tf-5hY"/>
+                        <outlet property="tblLocationUpdate" destination="hb9-e6-r5V" id="Spc-gS-0Iy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mxt-He-8bZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1966" y="807"/>
+        </scene>
+        <!--Read File-->
+        <scene sceneID="Y4z-0O-W4w">
+            <objects>
+                <viewController storyboardIdentifier="ReadLocationFileVC" id="1BH-wJ-hHZ" customClass="ReadLocationFileVC" customModule="GeoTourist_Practical_Test" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GeL-sW-l8u">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ard-nb-AXj">
+                                <rect key="frame" x="15" y="20" width="345" height="627"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="AppBlack"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zJm-sX-RkO"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ard-nb-AXj" firstAttribute="leading" secondItem="GeL-sW-l8u" secondAttribute="leading" constant="15" id="T1s-SF-e90"/>
+                            <constraint firstItem="ard-nb-AXj" firstAttribute="top" secondItem="GeL-sW-l8u" secondAttribute="top" constant="20" id="VeQ-e6-emb"/>
+                            <constraint firstAttribute="bottom" secondItem="ard-nb-AXj" secondAttribute="bottom" constant="20" id="XfE-cR-o8n"/>
+                            <constraint firstAttribute="trailing" secondItem="ard-nb-AXj" secondAttribute="trailing" constant="15" id="gr5-6B-o5j"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Read File" image="ic_read_file" id="ZZY-vI-YB4"/>
+                    <connections>
+                        <outlet property="tvLocationData" destination="ard-nb-AXj" id="jc1-Ms-f7V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="klO-96-hgU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2793" y="806"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_capture_video" width="25" height="25"/>
+        <image name="ic_create_tour" width="25" height="25"/>
+        <image name="ic_location_update" width="25" height="25"/>
+        <image name="ic_read_file" width="25" height="25"/>
+        <image name="ic_txt_cross" width="25" height="25"/>
+        <namedColor name="AppBlack">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppBlack1000">
+            <color red="0.125" green="0.16500000655651093" blue="0.23899999260902405" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppGray">
+            <color red="0.55699998140335083" green="0.60000002384185791" blue="0.67799997329711914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppRed">
+            <color red="1" green="0.067000001668930054" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

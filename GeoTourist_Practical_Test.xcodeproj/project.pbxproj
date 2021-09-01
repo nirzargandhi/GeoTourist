@@ -11,6 +11,7 @@
 		E619C47C26CEAED400BC43EB /* TourModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E619C47B26CEAED400BC43EB /* TourModal.swift */; };
 		E619C47E26CEAF8100BC43EB /* Tour.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E619C47D26CEAF8100BC43EB /* Tour.sqlite */; };
 		E619C48026CEB13C00BC43EB /* TourDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E619C47F26CEB13B00BC43EB /* TourDBManager.swift */; };
+		E656201E26D60C0E00E83A0C /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E656201D26D60C0E00E83A0C /* HealthKit.framework */; };
 		E66726E926CE6C2B00F82ECD /* ReadLocationFileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66726E826CE6C2B00F82ECD /* ReadLocationFileVC.swift */; };
 		E6C99D2E26CE2636005D44BF /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C99D2D26CE2636005D44BF /* TabbarVC.swift */; };
 		E6C99D3A26CE29B7005D44BF /* LocationUpdateTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C99D3926CE29B7005D44BF /* LocationUpdateTVC.swift */; };
@@ -96,6 +97,8 @@
 		E619C47B26CEAED400BC43EB /* TourModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourModal.swift; sourceTree = "<group>"; };
 		E619C47D26CEAF8100BC43EB /* Tour.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tour.sqlite; sourceTree = "<group>"; };
 		E619C47F26CEB13B00BC43EB /* TourDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourDBManager.swift; sourceTree = "<group>"; };
+		E656201C26D60C0E00E83A0C /* GeoTourist_Practical_Test.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GeoTourist_Practical_Test.entitlements; sourceTree = "<group>"; };
+		E656201D26D60C0E00E83A0C /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		E66726E826CE6C2B00F82ECD /* ReadLocationFileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadLocationFileVC.swift; sourceTree = "<group>"; };
 		E6C99D2D26CE2636005D44BF /* TabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarVC.swift; sourceTree = "<group>"; };
 		E6C99D3926CE29B7005D44BF /* LocationUpdateTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUpdateTVC.swift; sourceTree = "<group>"; };
@@ -171,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE1A6EB0C8629123C3A3C6C9 /* Pods_GeoTourist_Practical_Test.framework in Frameworks */,
+				E656201E26D60C0E00E83A0C /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +198,7 @@
 		17F59F12D37276FC8DB6A0B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E656201D26D60C0E00E83A0C /* HealthKit.framework */,
 				35CF75A535738ADCB40F7CA7 /* Pods_GeoTourist_Practical_Test.framework */,
 			);
 			name = Frameworks;
@@ -295,6 +300,7 @@
 				E6EE2B7A26CCD33B002E98D8 /* AppDelegate */,
 				E6EE2BBD26CCD366002E98D8 /* Colors */,
 				E6EE2B7626CCCEB2002E98D8 /* Design */,
+				E656201C26D60C0E00E83A0C /* GeoTourist_Practical_Test.entitlements */,
 				E6EE2B7B26CCD365002E98D8 /* Helper */,
 				E6EE2B7726CCCEBC002E98D8 /* Images */,
 				E6EE2B5426CCCDA0002E98D8 /* Info.plist */,
@@ -901,10 +907,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GeoTourist_Practical_Test/GeoTourist_Practical_Test.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.0;
-				DEVELOPMENT_TEAM = 7VPF9C254N;
+				DEVELOPMENT_TEAM = 63G8YYDQB6;
 				INFOPLIST_FILE = GeoTourist_Practical_Test/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -913,7 +920,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.geotourist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Dexter Apps";
+				PROVISIONING_PROFILE_SPECIFIER = 25thAug_Elegant_HealthKit;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/GeoTourist_Practical_Test/Helper/HeaderFile/GeoTourist_Bridging_Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -926,10 +933,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GeoTourist_Practical_Test/GeoTourist_Practical_Test.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.0;
-				DEVELOPMENT_TEAM = 7VPF9C254N;
+				DEVELOPMENT_TEAM = 63G8YYDQB6;
 				INFOPLIST_FILE = GeoTourist_Practical_Test/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -938,7 +946,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.geotourist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Dexter Apps";
+				PROVISIONING_PROFILE_SPECIFIER = 25thAug_Elegant_HealthKit;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/GeoTourist_Practical_Test/Helper/HeaderFile/GeoTourist_Bridging_Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

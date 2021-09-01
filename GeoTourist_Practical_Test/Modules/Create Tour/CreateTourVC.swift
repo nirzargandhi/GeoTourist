@@ -28,12 +28,12 @@ class CreateTourVC: UIViewController {
     var arrTourModal = [TourModal]()
     var objMapTapLocationCoordinate = CLLocationCoordinate2D()
     var dataVideo : Data?
-    
+
     //MARK: - ViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GeoFenceManager.sharedInstance.delegate = self
+        GeoFenceManager.sharedInstance.delegateGeoFence = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -282,7 +282,7 @@ extension CreateTourVC : MKMapViewDelegate {
 
 //MARK: - GeoFenceManagerDelegate Extension
 extension CreateTourVC : GeoFenceManagerDelegate {
-    
+  
     func updateMap() {
         
         loadMap()

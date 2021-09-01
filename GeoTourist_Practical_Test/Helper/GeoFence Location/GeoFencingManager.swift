@@ -10,6 +10,10 @@ protocol GeoFenceManagerDelegate {
     func updateMap()
 }
 
+protocol BackgroundTaskDelegate {
+    func startBackgroundTask()
+}
+
 class GeoFenceManager : NSObject {
     
     //MARK: - Variable Declaration
@@ -17,9 +21,10 @@ class GeoFenceManager : NSObject {
         let instance = GeoFenceManager()
         return instance
     }()
-    var delegate : GeoFenceManagerDelegate?
-    let objLocationManager = CLLocationManager()
+    var delegateGeoFence : GeoFenceManagerDelegate?
+    var delegateBackgroundTask : BackgroundTaskDelegate?
     
+    //MARK: - Init Method
     private override init() {
         super.init()
     }
@@ -92,7 +97,7 @@ class GeoFenceManager : NSObject {
 
 //MARK: - CLLocationManagerDelegate Extension
 extension GeoFenceManager : CLLocationManagerDelegate {
-
+    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
         if CLLocationManager.locationServicesEnabled() {
@@ -126,7 +131,11 @@ extension GeoFenceManager : CLLocationManagerDelegate {
         
         objCurrentLocation = locValue
         
-        delegate?.updateMap()
+        delegateGeoFence?.updateMap()
+        
+        delegateBackgroundTask?.startBackgroundTask()
+        
+        objLocationManager.stopUpdatingLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

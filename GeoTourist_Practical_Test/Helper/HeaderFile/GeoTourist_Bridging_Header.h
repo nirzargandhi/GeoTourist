@@ -19,6 +19,7 @@
 @import CoreTelephony;
 @import MediaPlayer;
 @import AVFoundation;
+@import HealthKit;
 
 @import Toast_Swift;
 @import IQKeyboardManagerSwift;

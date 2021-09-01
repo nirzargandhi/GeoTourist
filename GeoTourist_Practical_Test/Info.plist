@@ -29,6 +29,10 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) like to access your camera for an image uploading</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>$(PRODUCT_NAME) would like to access your health kit to provide you better fitness result</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>$(PRODUCT_NAME) would like  to access your health kit to provide you better fitness result</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like to use your current location for Explore section</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
@@ -55,6 +59,7 @@
 	<array>
 		<string>fetch</string>
 		<string>location</string>
+		<string>processing</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

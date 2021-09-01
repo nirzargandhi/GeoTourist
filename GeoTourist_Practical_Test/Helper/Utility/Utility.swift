@@ -4,6 +4,7 @@
 //MARK: - Variable Declaration
 let ScreenWidth = UIScreen.main.bounds.width
 let ScreenHeight = UIScreen.main.bounds.height
+var objLocationManager = CLLocationManager()
 var hud:MBProgressHUD = MBProgressHUD()
 
 var timer = Timer()

@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enableAutoToolbar = true
         
         GeoFenceManager.sharedInstance.checkLocationPermision()
-        
-        timerUpdateGeoLocation()
+                
+        GeoFenceManager.sharedInstance.delegateBackgroundTask = self
         
         Utility().copyFile(fileName: "Tour.sqlite")
         
@@ -44,11 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        timerUpdateGeoLocation()
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
-        endBackgroundUpdateTask()
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -57,24 +55,66 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
     }
     
-    //MARK: - End Background Update Task Method
+    //MARK: - Do Background Task Method
+    func doBackgroundTask() {
+
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.beginBackgroundUpdateTask()
+
+            GeoFenceManager.sharedInstance.getUserLocation()
+
+            timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(AppDelegate.bgtimer(_:)), userInfo: nil, repeats: true)
+            RunLoop.current.add(timer, forMode: RunLoop.Mode.default)
+            RunLoop.current.run()
+
+            self.endBackgroundUpdateTask()
+        }
+    }
+
+    //MARK: - Begin & End BackgroundUpdateTask Methods
+    func beginBackgroundUpdateTask() {
+        self.backgroundUpdateTask = UIApplication.shared.beginBackgroundTask(expirationHandler: {
+            self.endBackgroundUpdateTask()
+        })
+    }
+
     func endBackgroundUpdateTask() {
         UIApplication.shared.endBackgroundTask(self.backgroundUpdateTask)
-        backgroundUpdateTask = UIBackgroundTaskIdentifier.invalid
+        self.backgroundUpdateTask = UIBackgroundTaskIdentifier.invalid
     }
     
-    //MARK: - Scheduled Timer With TimeInterval Method
-    func timerUpdateGeoLocation() {
-        timer = Timer.scheduledTimer(timeInterval: 900, target: self, selector: #selector(self.callUpdateGeoLocation), userInfo: nil, repeats: true)
-        RunLoop.current.add(timer, forMode: RunLoop.Mode.default)
+    //MARK: - Background Timer Method
+    @objc func bgtimer(_ timer:Timer!){
+        updateLocation()
+        
+        callUpdateGeoLocation()
+    }
+
+    //MARK: - Update Location Method
+    func updateLocation() {
+        objLocationManager.startUpdatingLocation()
+        objLocationManager.stopUpdatingLocation()
     }
     
     //MARK: - Call UpdateLocation Method
-    @objc func callUpdateGeoLocation() {
-        UIApplication.topViewController()?.view.makeToast("User current location is Latitude : \(objCurrentLocation.latitude) & Longitude : \(objCurrentLocation.longitude)")
-        
+    func callUpdateGeoLocation() {
+        mainThread {
+            UIApplication.topViewController()?.view.makeToast("User current location is Latitude : \(objCurrentLocation.latitude) & Longitude : \(objCurrentLocation.longitude)")
+        }
+
         let strDate = Utility().datetimeFormatter(strFormat: DateAndTimeFormatString.strDateFormate_ddMMMyyyyhhmmss, isTimeZoneUTC: false).string(from: Date())
-        
+
         writeToDocumentsFile(strFileName: "Location Update.txt", strCurrentLocation: "Latitude : \(objCurrentLocation.latitude) & Longitude : \(objCurrentLocation.longitude) & Date - Time : \(strDate)\n\n")
+    }
+}
+
+//MARK: - GeoFenceManagerDelegate Extension
+extension AppDelegate : BackgroundTaskDelegate {
+
+    func startBackgroundTask() {
+        
+        doBackgroundTask()
+        
+        GeoFenceManager.sharedInstance.delegateBackgroundTask = nil
     }
 }
